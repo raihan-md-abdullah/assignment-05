@@ -22,3 +22,24 @@ heartIcon.forEach(function(heartF){
   });
 });
 
+//  If Called Star decreased
+const callBtns = document.querySelectorAll('.phn-call');
+callBtns.forEach(function(c){
+  c.addEventListener('click', function(){
+    const starCount = document.getElementById("star");
+    let starDecrease = parseInt(starCount.innerText);
+    let i = 20;
+    let newCount = starDecrease - i; 
+
+    if(starDecrease < i){
+      alert("You cant call right now. Please increase your star first.");
+      return;
+    }
+    starCount.innerText = newCount; 
+    const card = c.closest('.cardH');
+    const serviceName = card.querySelector('.name').innerText;
+    const servicenumber = card.querySelector('.number').innerText;
+    addToHistory(serviceName, servicenumber)
+    alert("You are calling " + serviceName + " (" + servicenumber + ")"); 
+  })
+})
