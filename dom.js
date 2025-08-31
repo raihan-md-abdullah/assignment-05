@@ -11,3 +11,14 @@ copyBtn.forEach(function(btn){
     alert("You are copied " + serviceName + " (" + servicenumber + ")"); 
   })
 })
+
+// Add Heart Increase Number
+const navHeart = document.getElementById('heart');
+const heartIcon = document.querySelectorAll('.fa-heart');
+heartIcon.forEach(function(heartF){
+  heartF.addEventListener('click', function(){
+    let add = parseInt(navHeart.innerText);
+    navHeart.innerText = add + 1; 
+  });
+});
+
